@@ -1,0 +1,16 @@
+dwncwevwvrwvrwv
+wnvwr
+sala
+lfkek
+
+// 3 static
+// portect fr BR
+// while inlimit
+    // pos++ -> read 
+        // read -> br
+        // pos = 0
+        // read <= 0 -> break
+    // push
+    // pos-1 \n
+// i == 0 -> NULL
+// return strdup line

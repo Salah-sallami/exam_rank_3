@@ -55,6 +55,7 @@ static char *ft_red_line(int fd)
 		nmb = read(fd, bfr, 1);
 		i++;
 	}
+	str = realloc(str, 1);
 	str[i] = '\0';
 	return str;
 }
@@ -64,19 +65,14 @@ int main(int ac, char **av)
 	char *str;
 	if (ac != 2)
 		return 1;
-
 	while (1)
 	{
-		// str  = readline(STDIN_FILENO);
 		str = ft_red_line(STDIN_FILENO);
 		if (!str)
 			break;
-
 		str = search_av_for_string(str, av[1]);
 		printf("%s\n", str);
 		free(str);
 	}
-
-	// fflush(stdout);
 	free(str);
 }

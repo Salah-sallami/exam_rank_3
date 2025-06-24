@@ -33,7 +33,6 @@ char *get_next_line(int fd)
         return (NULL);
     while (1)
     {
-        printf("%d >= %d\n",offset >= n_read);
         if (offset >= n_read)
         {
             n_read = read(fd, buffer, BUFFER_SIZE);

@@ -11,8 +11,7 @@ void print_subset(int *subset, int size)
     }
     printf("$\n");
 }
-
-void backtrack(int *arr, int n, int target, int index, int *subset, int subset_size, int current_sum)
+void backtrack(int *arr,int index, int n, int target,  int *subset, int subset_size, int current_sum)
 {
     if (index == n)
     {
@@ -21,26 +20,26 @@ void backtrack(int *arr, int n, int target, int index, int *subset, int subset_s
         return;
     }
 
-    backtrack(arr, n, target, index + 1, subset, subset_size, current_sum);
+    // index + 1
+    backtrack(arr,index + 1, n, target,  subset, subset_size, current_sum);
 
     subset[subset_size] = arr[index];
-    backtrack(arr, n, target, index + 1, subset, subset_size + 1, current_sum + arr[index]);
+    backtrack(arr,index + 1, n, target,  subset, subset_size + 1, current_sum + arr[index]);
 }
 
 int main(int ac, char **av)
 {
     if (ac < 2)
         return 1;
-
     int target = atoi(av[1]);
     int n = ac - 2;
     int *arr = malloc(sizeof(int) * n);
-    int *subset = malloc(sizeof(int) * n);
 
     for (int i = 0; i < n; i++)
         arr[i] = atoi(av[i + 2]);
 
-    backtrack(arr, n, target, 0, subset, 0, 0);
+    int *subset = malloc(sizeof(int) * n);
+    backtrack(arr,0, n, target,  subset, 0, 0);
 
     free(arr);
     free(subset);
